@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                org.headroyce.srd.calorietracker/org.headroyce.srd.calorietracker.HelloApplication
+                                org.headroyce.srd.calorietracker/org.headroyce.srd.calorietracker.Main
                             </mainClass>
                         </configuration>
                     </execution>
