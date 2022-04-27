@@ -24,7 +24,7 @@ public class calLogic {
     public String getMonthText(int month){
         String monthText = "";
         if(month == 1){
-
+            monthText = "January";
         }
         return monthText;
     }
