@@ -5,6 +5,6 @@ import javafx.scene.layout.BorderPane;
 public class settingGraphics extends BorderPane {
 
     public settingGraphics(){
-
+        
     }
 }
