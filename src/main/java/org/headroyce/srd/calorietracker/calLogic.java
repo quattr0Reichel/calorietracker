@@ -24,7 +24,40 @@ public class calLogic {
     public String getMonthText(int month){
         String monthText = "";
         if(month == 1){
-
+            monthText = "Janurary";
+        }
+        if (month == 2){
+            monthText = "Febuary";
+        }
+        if (month == 3){
+            monthText = "March";
+        }
+        if (month == 4){
+            monthText = "April";
+        }
+        if (month == 5){
+            monthText = "May";
+        }
+        if (month == 6){
+            monthText = "June";
+        }
+        if (month == 7){
+            monthText = "July";
+        }
+        if (month == 8){
+            monthText = "August";
+        }
+        if (month == 9){
+            monthText = "September";
+        }
+        if (month == 10){
+            monthText = "October";
+        }
+        if (month == 11){
+            monthText = "November";
+        }
+        if (month == 12){
+            monthText = "December";
         }
         return monthText;
     }
