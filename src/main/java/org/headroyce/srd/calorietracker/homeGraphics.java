@@ -27,9 +27,9 @@ public class homeGraphics extends BorderPane {
         settings.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                settingGraphics setting = new settingGraphics();
 
                 Stage s = (Stage) homeGraphics.this.getScene().getWindow();
+                settingGraphics setting = new settingGraphics(s);
                 Scene settingScene = new Scene(setting, s.getWidth(),s.getHeight());
                 s.setScene(settingScene);
                 s.setTitle("Settings");
