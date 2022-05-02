@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class GoalSettings extends BorderPane {
 
@@ -72,6 +73,20 @@ public class GoalSettings extends BorderPane {
         if (maintain.isSelected()) {
 
         }
+        Button back = new Button("Back");
+        this.setTop(back);
+
+        back.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Stage s = (Stage) GoalSettings.this.getScene().getWindow();
+                settingGraphics setting = new settingGraphics(s);
+                Scene settingsScene = new Scene(setting, s.getWidth(), s.getHeight());
+                s.setScene(settingsScene);
+                s.setTitle("Settings");
+
+            }
+        });
 
 
 

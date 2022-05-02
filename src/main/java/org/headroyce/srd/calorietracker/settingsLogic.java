@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 
 public class settingsLogic {
 
+
+
     private int dailyCals;
     private int netGoal;
     private int RMR;
@@ -203,5 +205,6 @@ public class settingsLogic {
         System.out.println(this.RMR);
 
     }
+
 
 }

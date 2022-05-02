@@ -18,6 +18,7 @@ public class settingGraphics extends BorderPane {
     private settingsLogic logic;
 
 
+
     public settingGraphics(Stage stage){
 
         logic = new settingsLogic();
@@ -63,7 +64,7 @@ public class settingGraphics extends BorderPane {
 
         this.setCenter(totalBox);
 
-        Button back = new Button("Save");
+
 
         rmrButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
@@ -83,6 +84,21 @@ public class settingGraphics extends BorderPane {
                 stage.setScene(goalScene);
                 stage.show();
                 stage.toFront();
+
+            }
+        });
+
+        Button bruh = new Button("Back");
+        this.setTop(bruh);
+
+        bruh.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                homeGraphics homeGraphic = new homeGraphics();
+                Stage s = (Stage) settingGraphics.this.getScene().getWindow();
+                Scene homeScene = new Scene(homeGraphic, s.getWidth(), s.getHeight());
+                s.setScene(homeScene);
+                s.setTitle("Home");
 
             }
         });

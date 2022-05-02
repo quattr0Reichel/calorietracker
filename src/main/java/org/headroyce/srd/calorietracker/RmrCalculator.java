@@ -135,6 +135,21 @@ public class RmrCalculator extends BorderPane {
             }
         });
 
+        Button back = new Button("Back");
+        this.setTop(back);
+
+        back.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Stage s = (Stage) RmrCalculator.this.getScene().getWindow();
+                settingGraphics setting = new settingGraphics(s);
+                Scene settingsScene = new Scene(setting, s.getWidth(), s.getHeight());
+                s.setScene(settingsScene);
+                s.setTitle("Settings");
+
+            }
+        });
+
 
 
 
