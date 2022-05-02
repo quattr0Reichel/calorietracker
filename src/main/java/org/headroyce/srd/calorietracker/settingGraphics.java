@@ -7,9 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
@@ -23,13 +22,15 @@ public class settingGraphics extends BorderPane {
 
         logic = new settingsLogic();
 
+        Text title = new Text("Settings");
+        title.setFont(new Font(30));
+
+
         Text setRMR = new Text("SET RMR");
         Text rmrExplained = new Text("Your resting metabolic rate (RMR) is how many calories \n you burn during the day without exercise. Calculate your RMR here:");
         rmrExplained.setTextAlignment(TextAlignment.CENTER);
         Button rmrButton = new Button("Find RMR");
 
-//        Text yourGoal = new Text("Your daily goal:");
-//        yourGoal.setTextAlignment(TextAlignment.JUSTIFY);
 //        Text calGoal = new Text( logic.getDailyCals() + " calories");
 //        calGoal.setTextAlignment(TextAlignment.JUSTIFY);
 
@@ -44,7 +45,14 @@ public class settingGraphics extends BorderPane {
         VBox goalBox = new VBox(10, setGoal, goalExplained, goalButton);
         goalBox.setAlignment(Pos.CENTER);
 
-        VBox totalBox = new VBox(30, rmrBox, goalBox);
+        Region spacer1 = new Region();
+        VBox.setVgrow(spacer1, Priority.ALWAYS);
+        Region spacer2 = new Region();
+        VBox.setVgrow(spacer2, Priority.ALWAYS);
+        Region spacer3 = new Region();
+
+
+        VBox totalBox = new VBox(30, spacer1, title, rmrBox, goalBox, spacer2);
         totalBox.setAlignment(Pos.CENTER);
 
         this.setCenter(totalBox);
@@ -53,7 +61,7 @@ public class settingGraphics extends BorderPane {
 
         rmrButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                RmrCalculator rmrCalc = new RmrCalculator();
+                RmrCalculator rmrCalc = new RmrCalculator(stage, logic);
                 Scene rmrScene = new Scene(rmrCalc, stage.getWidth(), stage.getHeight());
                 stage.setScene(rmrScene);
                 stage.show();
@@ -79,12 +87,6 @@ public class settingGraphics extends BorderPane {
 
 
 
-//        TextField basicCals = new TextField();
-//        basicCals.setPromptText("# calories burned daily");
-////        Label basicCalsLabel = new Label("input how many calories you burn \n a day (WITHOUT exercise) here");
-//        TextField netGoal = new TextField();
-//        netGoal.setPromptText("goal");
-////        Label netGoalLabel = new Label("input how many calories you \n want to gain or lose here");
 
 //        VBox inputbox = new VBox(5, basicCals, netGoal);
 //        inputbox.setAlignment(Pos.CENTER);
