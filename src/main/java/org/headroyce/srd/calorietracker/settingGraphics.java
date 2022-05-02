@@ -27,8 +27,11 @@ public class settingGraphics extends BorderPane {
 
 
         Text setRMR = new Text("SET RMR");
-        Text rmrExplained = new Text("Your resting metabolic rate (RMR) is how many calories \n you burn during the day without exercise. Calculate your RMR here:");
+        Text rmrExplained = new Text("Your resting metabolic rate (RMR) is how many calories you burn during the " +
+                "day without exercise. Calculate your RMR here:");
         rmrExplained.setTextAlignment(TextAlignment.CENTER);
+        rmrExplained.setWrappingWidth(stage.getWidth()/2);
+
         Button rmrButton = new Button("Find RMR");
 
 //        Text calGoal = new Text( logic.getDailyCals() + " calories");
@@ -38,8 +41,11 @@ public class settingGraphics extends BorderPane {
         rmrBox.setAlignment(Pos.CENTER);
 
         Text setGoal = new Text("SET GOAL");
-        Text goalExplained = new Text("Your goal is how many calories you want to add or cut from your \n diet. You can also choose to maintain weight. Set a goal here:");
+        Text goalExplained = new Text("Your goal is how many calories you want to add or cut from your " +
+                "diet. You can also choose to maintain weight. Set a goal here:");
         goalExplained.setTextAlignment(TextAlignment.CENTER);
+        goalExplained.setWrappingWidth(stage.getWidth()/2);
+
         Button goalButton = new Button("Choose Goal");
 
         VBox goalBox = new VBox(10, setGoal, goalExplained, goalButton);

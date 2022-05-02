@@ -34,9 +34,9 @@ public class RmrCalculator extends BorderPane {
         VBox chooseSystem = new VBox();
 
         //set up text fields + prompt text
-        TextField weight = new TextField("" + logic.getWeight());
-        TextField height = new TextField("" + logic.getHeight());
-        TextField age = new TextField("" + logic.getAge());
+        TextField weight = new TextField();
+        TextField height = new TextField();
+        TextField age = new TextField();
 
         weight.setPromptText("input weight here");
         height.setPromptText("input height here");
@@ -94,19 +94,16 @@ public class RmrCalculator extends BorderPane {
         calculate.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
 
+                logic.setImperial(imperial.isSelected());
+
                 warnings.getChildren().clear();
 
-
                 if (!logic.setWeight(weight.getText())) {
-
-                    System.out.println(logic.setWeight(weight.getText()));
-
                     Text weightWarning = new Text("Please input a legal weight.");
                     weightWarning.setFont(new Font(10));
                     weightWarning.setFill(Color.RED);
                     warnings.getChildren().add(weightWarning);
                 }
-
 
                 if (!logic.setHeight(height.getText())) {
                     Text heightWarning = new Text("Please input a legal height.");
@@ -122,8 +119,6 @@ public class RmrCalculator extends BorderPane {
                     warnings.getChildren().add(ageWarning);
                 }
 
-
-
                 if (!(female.isSelected() || male.isSelected())) {
                     Text sexWarning = new Text("Please choose a sex.");
                     sexWarning.setFont(new Font(10));
@@ -135,6 +130,8 @@ public class RmrCalculator extends BorderPane {
                     logic.setSex(female.isSelected());
 
                 }
+
+                logic.calculateRMR();
             }
         });
 
